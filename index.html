@@ -4,48 +4,33 @@
   <meta charset="UTF-8">
   <title>Свадебное приглашение</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Swiper.js CDN -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap');
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
       background: #fff0f5;
       color: #333;
     }
-
     header {
       text-align: center;
       background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,240,245,0.6)), url('https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
       padding: 4rem 1rem 5rem;
     }
-
     header h1 {
       font-family: 'Playfair Display', serif;
       font-size: 2.8rem;
       margin-bottom: 1rem;
     }
-
-    header p {
-      font-size: 1.2rem;
-    }
-
+    header p { font-size: 1.2rem; }
     section {
       max-width: 800px;
       margin: auto;
       padding: 2rem 1rem;
     }
-
-    .carousel-section {
-      padding-top: 1rem;
-    }
-
+    .carousel-section { padding-top: 1rem; }
     .swiper {
       width: 100%;
       height: 300px;
@@ -53,26 +38,22 @@
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-
     .swiper-slide img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
     form {
       background: #fff;
       border-radius: 16px;
       padding: 2rem;
       box-shadow: 0 6px 16px rgba(0,0,0,0.05);
     }
-
     form label {
       display: block;
       margin-top: 1rem;
       font-weight: bold;
     }
-
     form input, form select, form textarea {
       width: 100%;
       padding: 0.7rem;
@@ -80,7 +61,6 @@
       border-radius: 10px;
       border: 1px solid #ccc;
     }
-
     button {
       margin-top: 1.5rem;
       padding: 0.75rem 2rem;
@@ -91,37 +71,26 @@
       font-size: 1rem;
       cursor: pointer;
     }
-
-    button:hover {
-      background-color: #f06277;
-    }
-
+    button:hover { background-color: #f06277; }
     footer {
       text-align: center;
       padding: 2rem 1rem;
       color: #888;
       font-size: 0.9rem;
     }
-
     @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      .swiper {
-        height: 220px;
-      }
+      header h1 { font-size: 2rem; }
+      .swiper { height: 220px; }
     }
   </style>
 </head>
 <body>
 
-<!-- Header -->
 <header id="main">
   <h1>Егор & Елизавета</h1>
   <p>Приглашаем вас на нашу свадьбу — 17 сентября 2025 года в Подмосковье 💍</p>
 </header>
 
-<!-- Carousel Section -->
 <section class="carousel-section">
   <h2 style="text-align:center;">📸 Воспоминания</h2>
   <div class="swiper">
@@ -130,41 +99,40 @@
       <div class="swiper-slide"><img src="https://source.unsplash.com/800x600/?wedding,couple2" alt="photo2"></div>
       <div class="swiper-slide"><img src="https://source.unsplash.com/800x600/?wedding,ring" alt="photo3"></div>
     </div>
-    <!-- Add Pagination -->
     <div class="swiper-pagination"></div>
   </div>
 </section>
 
-<!-- Guest Form -->
 <section id="form-section">
   <h2 style="text-align:center;">💌 Анкета гостя</h2>
-  <form id="telegramForm">
+  <form action="https://formspree.io/f/ВАШ_ИДЕНТИФИКАТОР" method="POST">
     <label for="name">Ваше имя:</label>
-    <input type="text" id="name" name="name" required>
+    <input type="text" id="name" name="Имя" required>
 
     <label for="attendance">Вы сможете прийти?</label>
-    <select id="attendance" name="attendance" required>
+    <select id="attendance" name="Присутствие" required>
       <option value="">Выберите...</option>
-      <option value="yes">Да, с радостью!</option>
-      <option value="no">К сожалению, нет</option>
+      <option value="Да, с радостью!">Да, с радостью!</option>
+      <option value="К сожалению, нет">К сожалению, нет</option>
     </select>
 
     <label for="guests">Количество сопровождающих:</label>
-    <input type="number" id="guests" name="guests" min="0" max="5">
+    <input type="number" id="guests" name="Сопровождающих" min="0" max="5">
 
     <label for="wishes">Пожелания/вопросы:</label>
-    <textarea id="wishes" name="wishes" rows="4"></textarea>
+    <textarea id="wishes" name="Пожелания" rows="4"></textarea>
+
+    <input type="text" name="_honey" style="display:none">
+    <input type="hidden" name="_redirect" value="https://example.com/thankyou.html">
 
     <button type="submit">Отправить</button>
   </form>
 </section>
 
-<!-- Footer -->
 <footer>
-  С любовью, Алексей и Екатерина ❤️
+  С любовью, Егор и Елизавета ❤️
 </footer>
 
-<!-- Swiper.js -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
   const swiper = new Swiper('.swiper', {
@@ -175,51 +143,6 @@
     autoplay: {
       delay: 2500,
     },
-  });
-</script>
-
-<!-- Telegram Form Script -->
-<script>
-  const telegramToken = 'ВАШ_ТОКЕН';  // <-- замените
-  const chatID = 'ВАШ_CHAT_ID';       // <-- замените
-  const form = document.getElementById('telegramForm');
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const name = form.name.value;
-    const attendance = form.attendance.value;
-    const guests = form.guests.value || '0';
-    const wishes = form.wishes.value || '-';
-
-    const message = `
-📩 Анкета на свадьбу:
-
-👤 Имя: ${name}
-✅ Присутствие: ${attendance === 'yes' ? 'Да' : 'Нет'}
-👥 Сопровождающих: ${guests}
-💬 Пожелания: ${wishes}
-    `;
-
-    fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        chat_id: chatID,
-        text: message,
-        parse_mode: 'Markdown'
-      })
-    }).then(res => {
-      if (res.ok) {
-        alert("Спасибо! Анкета отправлена 🎉");
-        form.reset();
-      } else {
-        alert("Ошибка отправки. Попробуйте позже.");
-      }
-    }).catch(err => {
-      alert("Ошибка соединения.");
-      console.error(err);
-    });
   });
 </script>
 
